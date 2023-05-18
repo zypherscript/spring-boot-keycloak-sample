@@ -27,7 +27,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 @Slf4j
 @EnableMethodSecurity
-class SecurityConfig {
+public class SecurityConfig {
 
   private String[] allowedOrigins;
 
@@ -70,7 +70,8 @@ class SecurityConfig {
   }
 
   @SuppressWarnings("unchecked")
-  static class GrantedAuthoritiesExtractor implements Converter<Jwt, Collection<GrantedAuthority>> {
+  public static class GrantedAuthoritiesExtractor implements
+      Converter<Jwt, Collection<GrantedAuthority>> {
 
     public Collection<GrantedAuthority> convert(Jwt jwt) {
       var realmAccessMap = (Map<String, Collection<?>>) jwt.getClaims()

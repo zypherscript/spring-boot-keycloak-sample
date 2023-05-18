@@ -1,11 +1,8 @@
 package com.example.springbootkeycloak.repository;
 
 import com.example.springbootkeycloak.entity.Customer;
-import java.util.List;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CustomerRepository extends CrudRepository<Customer, Long> {
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-  @Override
-  List<Customer> findAll();
 }

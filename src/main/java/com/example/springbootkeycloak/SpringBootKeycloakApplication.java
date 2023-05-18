@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
 public class SpringBootKeycloakApplication {
@@ -16,6 +17,7 @@ public class SpringBootKeycloakApplication {
   }
 
   @Bean
+  @Profile("test")
   CommandLineRunner runner(CustomerRepository customerRepository) {
     return args -> {
       var customer1 = new Customer();
