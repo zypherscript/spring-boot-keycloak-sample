@@ -56,9 +56,9 @@ public class SecurityConfig {
     return http.authorizeHttpRequests(auth -> auth
             .anyRequest()
             .authenticated())
-        .oauth2ResourceServer(oauth2 -> oauth2
-            .jwt()
-            .jwtAuthenticationConverter(grantedAuthoritiesExtractor()))
+        .oauth2ResourceServer(oauth2 ->
+            oauth2.jwt(jwtConfigurer ->
+                jwtConfigurer.jwtAuthenticationConverter(grantedAuthoritiesExtractor())))
         .cors(Customizer.withDefaults())
         .build();
   }
